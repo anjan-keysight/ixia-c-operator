@@ -331,7 +331,7 @@ func (r *IxiaTGReconciler) getRelInfo(ctx context.Context, release string) error
 		if _, ok := componentDep[release]; !ok {
 			log.Infof("Version specific information could not be located; ensure a valid version is used")
 			log.Infof("Also ensure the version specific ConfigMap yaml is applied if working in offline mode")
-			return errors.New("Release dependency info could not be located")
+			return errors.New(fmt.Sprintf("Release %s related dependency info could not be located", release))
 		}
 
 		return nil
